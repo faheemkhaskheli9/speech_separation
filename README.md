@@ -1,4 +1,4 @@
-# speech_separation
+# Speech Separation and Learning to Listen
 
 # Overview
 
@@ -8,6 +8,10 @@ This is a project to improve the speech separation task. In this project, Audio-
 
 To run this project on colab you have to download this repository in your google drive.
 Next you have to run Looking_to_listen.ipynb in colab.
+
+## Note for Colab
+Remember to clean your trash folder in google drive when downloading Audio and Video for many 
+files and folders get deleted which ends up filling your google drive space. 
 
 # Data
 
