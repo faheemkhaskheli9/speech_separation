@@ -4,16 +4,21 @@
 
 This is a project to improve the speech separation task. In this project, Audio-only and Audio-Visual deep learning separation models are modified based on the paper [Looking to Listen at the Cocktail Party](https://arxiv.org/abs/1804.03619)[1]. 
 
+# Running On Colab
+
+To run this project on colab you have to download this repository in your google drive.
+Next you have to run Looking_to_listen.ipynb in colab.
+
 # Data
 
 [AVspeech dataset](https://looking-to-listen.github.io/) : contains 4700 hours of video segments, from a total of 290k YouTube videos.
 
-Customized video and audio downloader are provided in [audio](https://github.com/bill9800/speech_separation/tree/master/data/audio) and [video](https://github.com/bill9800/speech_separation/tree/master/data/video). (based on youtube-dl,sox,ffmpeg)  
+Customized video and audio downloader are provided in [audio](https://github.com/faheemkhaskheli9/speech_separation/tree/master/data/audio) and [video](https://github.com/bill9800/speech_separation/tree/master/data/video). (based on youtube-dl,sox,ffmpeg)  
 
-Instrouction for generating data is under [Data](https://github.com/bill9800/speech_separation/tree/master/data/README.md). 
+Instrouction for generating data is under [Data](https://github.com/faheemkhaskheli9/speech_separation/tree/master/data/README.md). 
 # Preprocessing
 
-There are several preprocess functions in the [utils](https://github.com/bill9800/speech_separation/tree/master/model/lib). Including STFT, iSTFT, power-law compression, complex mask and modified hyperbolic tangent[5] etc. Below is the preprocessing for audio data:
+There are several preprocess functions in the [utils](https://github.com/faheemkhaskheli9/speech_separation/tree/master/model/lib). Including STFT, iSTFT, power-law compression, complex mask and modified hyperbolic tangent[5] etc. Below is the preprocessing for audio data:
 
 ![](img/audio.png)
 
@@ -23,7 +28,7 @@ For the visual part, MTCNN is applied to detect face and correct it by checking 
 
 # Model
 
-Audio-only model is provided in [model_v1](https://github.com/bill9800/speech_separation/tree/master/model/model_v1) and Audio-visual model is provided in [model_v2](https://github.com/bill9800/speech_separation/tree/master/model/model_v2).
+Audio-only model is provided in [model_v1](https://github.com/faheemkhaskheli9/speech_separation/tree/master/model/model_v1) and Audio-visual model is provided in [model_v2](https://github.com/bill9800/speech_separation/tree/master/model/model_v2).
 
 Follwing is the brief structure of Audio-Visual model, some layers are revised corresponding to our customized compression and dataset.[1] 
 
@@ -39,7 +44,7 @@ Optimizer : Adam
 
 Apply complex ratio mask (cRM) to STFT of the mixed speech, we can produce the STFT of single speaker’s speech.
 
-Samples to complete the prediction are provided in eval file in [model_v1](https://github.com/bill9800/speech_separation/tree/master/model/model_v1) and [model_v2](https://github.com/bill9800/speech_separation/tree/master/model/model_v2).
+Samples to complete the prediction are provided in eval file in [model_v1](https://github.com/bill9800/speech_separation/tree/master/model/model_v1) and [model_v2](https://github.com/faheemkhaskheli9/speech_separation/tree/master/model/model_v2).
 
 # Reference
 
