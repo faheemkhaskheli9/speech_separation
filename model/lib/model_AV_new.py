@@ -1,10 +1,9 @@
 from keras import optimizers
-#from keras.layers import Dense, Convolution3D, MaxPooling3D, ZeroPadding3D, Dropout, Flatten, BatchNormalization, ReLU
 from keras.models import Sequential, model_from_json
 from keras import optimizers
-from keras.layers import Input, Dense, Convolution2D, Deconvolution2D, Bidirectional, UpSampling2D, UpSampling3D, concatenate
+from keras.layers import Input, Dense, Convolution2D, Bidirectional, UpSampling2D, UpSampling3D, concatenate
 from keras.layers import Dropout, Flatten, BatchNormalization, ReLU, Reshape, Permute, Lambda, TimeDistributed
-from keras.models import Model, load_model
+from keras.models import Model, load_model 
 from keras.layers.recurrent import LSTM
 from keras.initializers import he_normal, glorot_uniform
 import numpy as np
@@ -12,8 +11,7 @@ from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras.callbacks import TensorBoard
 import tensorflow as tf
 import os
-from MyGenerator import AVGenerator
-
+from model.lib.MyGenerator import AVGenerator
 
 def AV_model(people_num=2):
     def UpSampling2DBilinear(size):

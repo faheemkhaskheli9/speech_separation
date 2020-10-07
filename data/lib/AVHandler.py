@@ -32,12 +32,12 @@ def download(loc,name,link,sr=16000,type='audio'):
 
     if type == 'audio':
         # download wav file from the youtube link
-        command = 'cd %s;' % loc
-        command += 'youtube-dl -x --audio-format wav -o o' + name + '.wav ' + link + ';'
-        command += 'ffmpeg -i o%s.wav -ar %d -ac 1 %s.wav;' % (name,sr,name)
-        command += 'rm o%s.wav' % name
+        command = 'youtube-dl -x --audio-format wav -o o' + name + '.wav ' + link + ';'
         os.system(command)
-
+        command = 'ffmpeg -i o%s.wav -ar %d -ac 1 %s.wav;' % (name,sr,loc+"/"+name)
+        os.system(command)
+        command = 'rm o%s.wav' % name
+        os.system(command)
 
 
 def cut(loc,name,start_time,end_time):
@@ -47,9 +47,11 @@ def cut(loc,name,start_time,end_time):
     # start_time  | the start time of the audio segment
     # end_time    | the end time of the audio segment
     length = end_time - start_time
-    command = 'cd %s;' % loc
-    command += 'sox %s.wav trim_%s.wav trim %s %s;' % (name,name,start_time,length)
-    command += 'rm %s.wav' % name
+    new_name = loc+"/"+name
+    new_trim_name = loc+"/trim_"+name
+    command = 'sox %s.wav %s.wav trim %s %s;' % (new_name,new_trim_name,start_time,length)
+    os.system(command)
+    command = 'rm %s.wav' % new_name
     os.system(command)
 
 

@@ -105,7 +105,7 @@ class AVGenerator(keras.utils.Sequence):
             for j in range(2):
                 y[i, :, :, :, j] = np.load(self.database_dir_path+'audio/AV_model_database/crm/' + info[j + 1])
                 X2[i, :, :, :, j] = np.load(self.database_dir_path+'video/face_emb/' + info[j + 3])
-
+                
         return [X1, X2], y
 
 
